@@ -7,6 +7,8 @@ namespace GraphSCC.ConsoleApp
         public int Id { get; set; }
         public List<int> Edges { get; set; } = new List<int>();
         public List<int> ReverseEdges { get; set; } = new List<int>();
+        public bool Explored { get; set; }
+        public int FinishingTime { get; set; }
         public Node(int id)
         {
             Id = id;

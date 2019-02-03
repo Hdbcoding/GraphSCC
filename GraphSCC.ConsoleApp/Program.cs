@@ -19,7 +19,6 @@ namespace GraphSCC.ConsoleApp
         public static Dictionary<int, Node> ParseGraph(string inputFile)
         {
             var graph = new Dictionary<int, Node>();
-            int largestId = 0;
             foreach (string line in File.ReadLines(inputFile))
             {
                 List<int> values = line.Split('\t', ' ', ',')
@@ -34,22 +33,7 @@ namespace GraphSCC.ConsoleApp
 
                 graph[id].AddEdge(edge);
                 graph[edge].AddReverseEdge(id);
-
-                if (id > largestId)
-                {
-                    largestId = id;
-                }
-                if (edge > largestId)
-                {
-                    largestId = edge;
-                }
             }
-
-            //for (int i = 1; i <= largestId; i++)
-            //{
-            //    if (!graph.ContainsKey(i)) graph.Add(i, new Node(i));
-            //}
-
 
             return graph;
         }

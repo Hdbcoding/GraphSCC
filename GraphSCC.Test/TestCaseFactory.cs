@@ -16,7 +16,7 @@ namespace GraphSCC.Tests
                 IEnumerable<string> files = Directory.EnumerateFiles(_testDirectory);
                 foreach (string entry in files)
                 {
-                    string key = entry.Substring(entry.IndexOf("mostlyCycles"));
+                    string key = entry.Substring(entry.IndexOf('_') + 1);
                     if (dict.ContainsKey(key))
                     {
                         dict[key] = (dict[key].input, entry);
